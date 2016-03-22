@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :articles
-	has_secure_password
+	has_many :articles, dependent: :destroy
 	before_save { self.email = email.downcase }
 
 	validates :username, presence: true, uniqueness: { case_sensitive: false },
@@ -15,5 +14,5 @@ class User < ActiveRecord::Base
 	validates :password, :length => { :minimum => 5 }
 
 	validates_presence_of :password_confirmation
-
+	has_secure_password
 end
