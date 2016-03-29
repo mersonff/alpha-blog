@@ -1,4 +1,8 @@
-<h1 align="center">Listing all articles</h1>
+<% if params[:search] && !params[:search].empty? %>
+	<h1 align="center">Searching results for "<%= params[:search] %>"</h1>
+<% else %>
+	<h1 align="center">Listing all articles</h1>
+<% end %>
 <div align="center">
 	<%= will_paginate %>
 </div>
