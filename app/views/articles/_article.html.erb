@@ -6,7 +6,7 @@
 					<%= link_to highlight(article.title, params[:search]), article_path(article) %>
 				</div>
 			<div class="article-body">
-				<%= truncate(highlight(article.description, params[:search]), length: 100) %>
+				<%= highlight(truncate(article.description, length: 100 ),params[:search]) %>
 
 				<div class="article-meta-details">
 					<small>Created by: <%= article.user.username if article.user%>,
